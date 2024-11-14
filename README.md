@@ -1,7 +1,7 @@
 
 # Glo-Bus Max EPS 💹
 
-Glo-Bus Max EPS is a Chrome extension developed to optimize Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the best financial parameter configurations. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved. It includes an easy-to-use interface for controlling optimization and tracking historical scores.
+Glo-Bus Max EPS is a Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the best financial parameter configurations. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
 
 # This is not a program to guarantee first place for this simulation
 ## High EPS Strategy Guide
