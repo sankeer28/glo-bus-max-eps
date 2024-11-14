@@ -62,3 +62,47 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
 3. **EPS Display**: The **Best EPS** score and associated configuration are shown in real-time.
 4. **Resetting and Reapplying Values**: Users can reset the EPS and reapply the best values with the **Reset** and **Apply Best Values** options, respectively.
 
+## Versions
+1. V1 **DO NOT USE**
+   - bad ui
+   -  changes only the dropdown style inputs
+   -   changes competative assumptions to best case scenerio (bad) 
+3. V2 **DO NOT USE**
+   - new ui
+   -  same issue as V1 with program changing competative assumptions 
+4. V3 **DO NOT USE**
+   - same issue as V1 and V2 with program changing competative assumptions 
+5. V4 **DO NOT USE**
+   - "Best EPS" is broken
+   -  adds so much to log it breaks/freezes
+   -  changes competative assumptions
+6. V5
+   - "Best EPS" issue is fixed
+   -  "apply values" button is broken
+   -   adds so much past eps's to log it may break/freeze
+   - unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range.
+7. V6
+   - "apply values" button is broken
+   -  adds so much eps's to log it may break/freeze
+   -  unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range.
+9. V7
+    - "apply values" results in a lower eps than what what recorded. somehow made this worse than V6
+    - unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range.
+10. V8
+    - "apply best values" is broken
+    - history is removed to save storage
+    - only info on the best eps is recorded.
+    - unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range.
+11. V9
+    - "apply best values" is broken
+    - added reset button to reset eps (you had to manually uninstall/reinstall before).
+    - unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range. 
+12. V9.5
+    - "apply best values" is broken
+    - attempt to fix the issue with enteringa  number within range for "Average Wholesale Price to Retailers", results in eps dropping as there is an issue when recording highest eps found so far and the range for the other inputs are broken.
+14. V10
+    - reverted from v9.5
+    - unable to change "Average Wholesale Price to Retailers" for AC Camera as it uses a number not in range.
+    - "Best eps" does not update fast enough
+    - "apply best values" works sometimes (sometimes results in an eps lower than best, sometimes even higher than recorded best)
+    
