@@ -143,4 +143,14 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
 
 </details>
 
+## Example
+V10 was used in this example, EPS went form 8.87 to 9.50 in the 1min period the program was run for, EPS will go higher if the program is ran for longer.
+- Issues mentioned above with this version are clearly visible
+    - "Best EPS" does not update fast enough due to the 1ms speed, more time may allow the program to proeprly capture the highest EPS.
+    - some inputs having numbers that are not in range which result in the value not being changed in the end.
+- Overall the progam does what its intended to do by saving time, you can overcome these issues by timing when you click the "Stop" button and may also have to change some values manually.
+
+https://github.com/user-attachments/assets/2984dded-6db8-4843-83d4-5c6b0dff611c
+
+
 
