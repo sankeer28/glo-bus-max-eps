@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 300px; padding: 10px; }
+    .input-group { margin: 10px 0; }
+    #log { max-height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+  <div class="input-group">
+    <label>Delay (ms):</label>
+    <input type="number" id="delay" value="2000" min="1000">
+  </div>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn" style="display:none">Stop</button>
+  <div id="status">Ready</div>
+  <div id="bestResult"></div>
+  <pre id="log"></pre>
+  <script src="popup.js"></script>
+</body>
+</html>

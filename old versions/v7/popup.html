@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPS Calculator</title>
+  <style>
+    /* Base Styling */
+    body {
+      width: 400px;
+      padding: 20px;
+      background-color: #1a1b26;
+      color: #c0caf5;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #7aa2f7;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #7aa2f7;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #414868;
+      border-radius: 5px;
+      background-color: #2e3440;
+      color: #c0caf5;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #startBtn {
+      background-color: #7aa2f7;
+      color: #1a1b26;
+    }
+
+    #stopBtn {
+      background-color: #f7768e;
+      color: #1a1b26;
+      display: none;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .best-score,
+    .history-container {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #9ece6a;
+    }
+
+    #bestScore {
+      background-color: #2e3440;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #414868;
+      text-align: center;
+    }
+
+    #log {
+      width: 100%;
+      height: 200px;
+      border-radius: 5px;
+      border: 1px solid #414868;
+      overflow-y: auto;
+      font-family: monospace;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #24283b;
+      white-space: pre;
+      display: none;
+      color: #c0caf5;
+    }
+
+    .score-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+    }
+    
+    #applyBestValues {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Glo-Bus Max EPS 👿💵💹💸</h1>
+  
+  <div class="input-group">
+    <label for="delay">Delay (ms):</label>
+    <input type="number" id="delay" value="2000" min="500">
+  </div>
+
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+
+  <div id="bestScore" class="best-score">Best EPS: $0.00</div>
+  <div id="history" class="history-container"></div>
+
+  <div id="log"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
