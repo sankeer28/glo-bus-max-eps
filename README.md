@@ -67,7 +67,7 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
 2. **Load as a Chrome Extension**:
    - Navigate to `chrome://extensions` in Chrome.
    - Enable **Developer Mode**.
-   - Click **Load unpacked** and select the folder.
+   - Click **Load unpacked** and select the latest version folder.
 3. **Launch the Extension**:
    - Click on the Glo-Bus Max EPS icon.
    - Set a delay to control optimization speed (optional).
