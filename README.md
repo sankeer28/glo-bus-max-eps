@@ -17,22 +17,12 @@ Glo-Bus Max EPS is a Chrome extension developed to optimize Earnings Per Share (
 - Do not be afraid to have your workers work overtime
   - You will see this in Compensationa nd fciltiies as "Additional Workstations Needed to Avoid Overtime Assembly #". ignore this unless ths brings EPS up.
   
-
-
-## Table of Contents
-- [Technical Overview](#technical-overview)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Key Code Components](#key-code-components)
-
-
 ## Features 🚀
 ⚠️ = May or may not work. 
 - **Automated EPS Optimization**: Tests various input values to find configurations that yield the highest EPS. ⚠️
 - **Financial Metrics Tracking**: Monitors EPS, net revenue, profit, cash, image rating, market share, stock price, and return on assets (ROA). ⚠️
 - **Persistent Best Score**: Saves the best EPS score and input configuration, allowing users to reapply or reset values. ⚠️
 - **Interactive UI**: Simple start/stop controls with delay customization. ✅
-- **Historical Log**: Stores past scores and configurations for easy tracking and comparison. ⚠️
 
 ## Technical Overview
 
@@ -71,54 +61,4 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
 2. **Start Optimization**: Clicking **Start** begins the input testing process, which continues until **Stop** is clicked.
 3. **EPS Display**: The **Best EPS** score and associated configuration are shown in real-time.
 4. **Resetting and Reapplying Values**: Users can reset the EPS and reapply the best values with the **Reset** and **Apply Best Values** options, respectively.
-5. **Viewing History**: Track and compare past EPS scores with metrics details through the history log.
-
-## Key Code Components
-
-### Main JavaScript Functions
-
-#### `optimizeInput` and `optimizeSelect`
-
-These functions iteratively test different values for numeric input fields (`optimizeInput`) and dropdown selections (`optimizeSelect`). 
-
-- **Input Optimization**: The `optimizeInput` function tests multiple values for each input, adjusting by a `stepSize` that gradually narrows to fine-tune EPS.
-  - The function first sets a range (`min`, `max`) and attempts an initial `currentValue`. It then makes incremental changes, calling the `clickCalculate` function to trigger recalculations.
-  - Each value change is followed by a delay, allowing EPS scores to update, and results are stored if a new best score is detected.
-  
-- **Select Optimization**: The `optimizeSelect` function iterates through all options within a select element.
-  - It assigns each option’s value to the select field, calls `clickCalculate`, and compares the result against the current best score.
-  - The function saves the highest EPS configuration by storing the score and associated metrics in Chrome's `local storage`.
-
-#### `calculateCompositeScore`
-
-This function assigns a weighted score based on financial metrics, with EPS contributing the highest weight. This approach ensures that EPS remains the primary optimization target but allows other metrics to influence the overall score, thereby producing a balanced and optimized financial configuration.
-
-- **Metrics Weighting**: Each metric (e.g., net revenue, profit) is assigned a weight that contributes to the composite score, making it responsive to changes across all financial areas.
-- **Best Metrics Update**: When new configurations improve upon any existing metric, they are saved as `bestMetrics`, updating both the current and historical best scores.
-
-#### `verifyComboScore`
-
-Before recording a new score, `verifyComboScore` recalculates EPS by applying the tested values and re-checking the result to avoid inaccuracies caused by floating-point discrepancies or delayed page updates. This function uses Chrome’s `executeScript` to interact with the page directly and confirms that the new EPS score is correct before updating the best score.
-
-#### `updateBestScoreDisplay` and `updateHistoryUI`
-
-These functions update the user interface:
-- **`updateBestScoreDisplay`**: Displays the best EPS score along with buttons to apply or reset values.
-- **`updateHistoryUI`**: Dynamically updates the history log, showing each EPS score along with relevant metrics and configuration details.
-
-### Chrome Storage
-
-The extension uses Chrome’s `chrome.storage.local` API to persist data, enabling it to save and retrieve:
-- **isRunning**: Tracks the extension’s running state.
-- **bestScore** and **bestCombo**: Stores the highest EPS score and the associated input configuration.
-- **globalHistory**: Maintains a log of past scores and configurations for reference and comparison.
-
-### UI Elements and Interactions
-
-The UI, defined in `popup.html`, includes buttons for controlling the extension and a history log for tracking scores:
-- **Start/Stop Buttons**: Initiates or halts the optimization.
-- **Delay Setting**: Customizes the delay between optimization iterations.
-- **Best Score Display**: Shows the highest EPS score achieved and allows reapplying it.
-- **History Log**: Provides a historical view of scores, including the EPS and associated metrics, in a collapsible format.
-
 
