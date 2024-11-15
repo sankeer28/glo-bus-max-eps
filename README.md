@@ -3,7 +3,7 @@
 
 Glo-Bus Max EPS is a Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the best financial parameter configurations. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
 
-## This is not a program and below strategy will **NOT** guarantee first place for this simulation
+## This program and below strategy will **NOT** guarantee first place for this simulation
 ## High EPS Strategy Guide
 
 <details>
@@ -74,7 +74,7 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
    - Start the extension by clicking **Start**.
 
 ## Usage
-### Only use this extension on the "AC Camera Marketing" and "UAV Drone Marketing" pages.
+### Only use this extension on the "AC Camera Marketing" and "UAV Drone Marketing" pages. It will work on the "Product Design" page but will set R&D to 0, so chagne it back to the highest possible.
 
 
 1. **Setting Delay**: Configure the delay in milliseconds to control the optimization loop's frequency.
