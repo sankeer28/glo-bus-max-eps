@@ -140,6 +140,25 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
       - Unable to change "Average Wholesale Price to Retailers" for AC Camera, as it uses a number not in range
       - "Best EPS" does not update fast enough
       - "Apply Best Values" works sometimes (sometimes results in an EPS lower than best, sometimes higher than recorded best)
+        
+  12. **V11**
+      - Fixed issue from V10, can now change "Average Wholesale Price to Retailers" for AC Camera
+      - "Best EPS" does not update fast enough
+      - removed "Apply Best Values"
+      - on UAV page only "Search Engine Advertising" is being changed.
+      
+        
+  13. **V12**
+      - Sometimes when clicking "Stop" the EPS is not set to the Best EPS found. (can be overcome by not letting program run for too long)
+      - "Best EPS" does not update fast enough
+      - Fixed issue with V10, UAV page works properly
+      - Does not properly find optimal weeks n % for sales promotion. (must fo manually)
+        
+  14. **V13**
+      - Optimized to use smaller increments to get potentially higher EPS compared to V12
+      - "Best EPS" does not update fast enough
+
+    
 
 </details>
 
