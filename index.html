@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glo-Bus Max EPS - Version Selector</title>
+    
+    <!-- Bootstrap Dark Theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark Theme Color Palette */
+            --dark-bg-primary: #121212;
+            --dark-bg-secondary: #1e1e1e;
+            --dark-text-primary: #e0e0e0;
+            --dark-text-secondary: #a0a0a0;
+            --dark-accent-primary: #bb86fc;
+            --dark-accent-secondary: #03dac6;
+            --dark-surface: #252525;
+            --dark-error: #cf6679;
+        }
+
+        body {
+            background-color: var(--dark-bg-primary);
+            color: var(--dark-text-primary);
+            font-family: 'Inter', 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, 
+                rgba(187, 134, 252, 0.8) 0%, 
+                rgba(3, 218, 198, 0.8) 100%);
+            color: var(--dark-bg-primary);
+            padding: 80px 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .version-selector {
+            background-color: var(--dark-bg-secondary);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--dark-surface);
+        }
+
+        .latest-version-card {
+            background-color: var(--dark-surface);
+            color: var(--dark-text-primary);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--dark-accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .latest-version-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(187, 134, 252, 0.2);
+        }
+
+        .version-badge {
+            background-color: var(--dark-accent-primary);
+            color: var(--dark-bg-primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .form-select, .form-control {
+            background-color: var(--dark-surface);
+            color: var(--dark-text-primary);
+            border-color: var(--dark-accent-secondary);
+        }
+
+        .btn-primary {
+            background-color: var(--dark-accent-primary);
+            border-color: var(--dark-accent-primary);
+            color: var(--dark-bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(187, 134, 252, 0.8);
+        }
+
+        .browser-buttons .btn {
+            background-color: var(--dark-surface);
+            color: var(--dark-text-primary);
+            border-color: var(--dark-accent-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .browser-buttons .btn:hover {
+            background-color: var(--dark-accent-secondary);
+            color: var(--dark-bg-primary);
+            transform: translateY(-5px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-surface);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--dark-accent-primary);
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .version-selector {
+                margin-top: -50px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section" style="background: var(--dark-bg-primary); color: var(--dark-text-primary);">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-uppercase" style="
+                background: linear-gradient(135deg, #bb86fc, #03dac6);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+                letter-spacing: 1px;
+                display: inline-block;
+            ">
+                Glo-Bus Max EPS Optimizer
+            </h1>
+            
+        </div>
+    </div>
+    
+    <p class="lead fw-semibold text-muted text-center">
+        .
+    </p>
+    
+
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="version-selector">
+                    <p class="lead fw-semibold text-muted text-center">
+                        Download Extension
+                    </p>
+                    
+                    <!-- Latest Version Section -->
+                    <div class="latest-version-card">
+                        <div class="version-details">
+                            <div>
+                                <h2>Latest Version 
+                                    <span class="version-badge">v14</span>
+                                </h2>
+                                <p class="text-muted">Recommended for all users</p>
+                            </div>
+                            <button id="downloadLatestBtn" class="btn btn-success btn-lg">
+                                Download Latest Version
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Older Versions Dropdown -->
+                    <div class="mb-3">
+                        <h3>Older Versions</h3>
+                        <select id="oldVersionSelect" class="form-select">
+                            <option selected disabled>Select an Older Version</option>
+                        </select>
+                        <button id="downloadOldVersionBtn" class="btn btn-secondary mt-2">
+                            Download Selected Version
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <h3>Installation Instructions</h3>
+                        <ol class="text-start">
+                            <li>Download the desired version</li>
+                            <li>Unzip the file</li>
+                            <li>
+                                Open Browser Extensions Page
+                                <div class="browser-buttons mt-2">
+                                    <button onclick="openBrowserExtensionsPage('chrome')" class="btn btn-primary m-1">
+                                        <i class="fab fa-chrome"></i> Chrome
+                                    </button>
+                                    <button onclick="openBrowserExtensionsPage('edge')" class="btn btn-success m-1">
+                                        <i class="fab fa-edge"></i> Microsoft Edge
+                                    </button>
+                                    <button onclick="openBrowserExtensionsPage('firefox')" class="btn btn-orange m-1">
+                                        <i class="fab fa-firefox"></i> Firefox
+                                    </button>
+                                    <button onclick="openBrowserExtensionsPage('opera')" class="btn btn-danger m-1">
+                                        <i class="fab fa-opera"></i> Opera
+                                    </button>
+                                    <button onclick="openBrowserExtensionsPage('brave')" class="btn btn-secondary m-1">
+                                        <i class="fas fa-shield-alt"></i> Brave
+                                    </button>
+                                    <button onclick="openBrowserExtensionsPage('safari')" class="btn btn-info m-1">
+                                        <i class="fab fa-safari"></i> Safari
+                                    </button>
+                                </div>
+                            </li>
+                            <li>Enable "Developer Mode"</li>
+                            <li>Click "Load Unpacked"</li>
+                            <li>Select the downloaded extension folder</li>
+                        </ol>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="mb-3">
+                            <i class="fas fa-info-circle me-2"></i>Usage Guide
+                        </h3>
+                        <div class="card bg-dark border-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning mb-3">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>Important Usage Instructions
+                                </h5>
+                                <ul class="list-group list-group-flush bg-dark">
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">Supported Pages:</strong> 
+                                        Only use this extension on the "AC Camera Marketing" and "UAV Drone Marketing" pages.
+                                    </li>
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">Product Design Page Note:</strong> 
+                                        Will work on "Product Design" page but sets R&D to 0 - manually change back to highest possible.
+                                    </li>
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">Delay Configuration:</strong> 
+                                        Configure delay in milliseconds to control optimization loop frequency.
+                                    </li>
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">Optimization Process:</strong> 
+                                        Clicking "Start" begins input testing, continuing until "Stop" is clicked.
+                                    </li>
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">EPS Tracking:</strong> 
+                                        Best EPS score and configuration displayed in real-time.
+                                    </li>
+                                    <li class="list-group-item bg-dark text-light border-secondary">
+                                        <strong class="text-info">Value Management:</strong> 
+                                        Use "Reset" and "Apply Best Values" to manage optimization results.
+                                    </li>
+                                </ul>
+                                
+                                <div class="alert alert-warning mt-3" role="alert">
+                                    <h5 class="alert-heading">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Critical Warnings
+                                    </h5>
+                                    <p class="mb-0">
+                                        <strong>Important:</strong> Please click "Stop" and record values when new Best EPS is reached. 
+                                        EPS when you click "Stop" might not always match the displayed Best EPS.
+                                    </p>
+                                    <hr>
+                                    <p class="mb-0">
+                                        <strong>Accuracy Disclaimer:</strong> This program may not always be accurate. 
+                                        Always manually recheck values to confirm the best EPS.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="card bg-dark border-secondary">
+                            <div class="card-header" id="strategyGuideHeading">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link text-light w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#strategyGuideCollapse" aria-expanded="false" aria-controls="strategyGuideCollapse">
+                                        <i class="fas fa-chart-line me-2"></i>High EPS Strategy Guide 
+                                        <span class="float-end">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </span>
+                                    </button>
+                                </h3>
+                            </div>
+
+                            <div id="strategyGuideCollapse" class="collapse" aria-labelledby="strategyGuideHeading">
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush bg-dark">
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Projected Performance</strong>
+                                            <p class="text-muted">Ensure left-hand side (Projected Performance) is higher than right-hand side (Investors Expect).</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Research and Development</strong>
+                                            <p class="text-muted">Invest fully in R&D (buy all $50k available).</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Stock Buyback</strong>
+                                            <p class="text-muted">Try to buy back full stock as much as possible.</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Price/Quality Ratio</strong>
+                                            <p class="text-muted">Keep P/Q around industry average. Higher P/Q is preferred if it doesn't negatively impact EPS.</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Manual Adjustments</strong>
+                                            <p class="text-muted">Always manually adjust values—the program is not 100% accurate.</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Loan Management</strong>
+                                            <p class="text-muted">Do NOT take out a loan.</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Cash Management</strong>
+                                            <p class="text-muted">Aim for non-negative ending cash but avoid keeping too much. Excess cash could be better invested.</p>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Corporate Social Responsibility Initiatives (CSRC)</strong>
+                                            <ul class="text-muted">
+                                                <li>Continue only:
+                                                    <ul>
+                                                        <li>Cafeteria and On-Site Child Care Facilities for Plant Employees</li>
+                                                        <li>Additional Safety Equipment and Improved Lighting / Ventilation</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Select "No" for all other CSRC initiatives</li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item bg-dark text-light border-secondary">
+                                            <strong class="text-info">Overtime and Workstations</strong>
+                                            <ul class="text-muted">
+                                                <li>Allow overtime for workers if needed</li>
+                                                <li>Ignore "Additional Workstations Needed" unless it increases EPS</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function openBrowserExtensionsPage(browser) {
+            const browserInstructions = {
+                'chrome': {
+                    url: 'chrome://extensions',
+                    instructions: 'For Chrome:\n1. Copy this URL: chrome://extensions\n2. Paste it in your Chrome browser\'s address bar\n3. Press Enter'
+                },
+                'edge': {
+                    url: 'edge://extensions',
+                    instructions: 'For Microsoft Edge:\n1. Copy this URL: edge://extensions\n2. Paste it in your Edge browser\'s address bar\n3. Press Enter'
+                },
+                'firefox': {
+                    url: 'about:addons',
+                    instructions: 'For Firefox:\n1. Copy this URL: about:addons\n2. Paste it in your Firefox browser\'s address bar\n3. Press Enter'
+                },
+                'opera': {
+                    url: 'opera://extensions',
+                    instructions: 'For Opera:\n1. Copy this URL: opera://extensions\n2. Paste it in your Opera browser\'s address bar\n3. Press Enter'
+                },
+                'brave': {
+                    url: 'brave://extensions',
+                    instructions: 'For Brave:\n1. Copy this URL: brave://extensions\n2. Paste it in your Brave browser\'s address bar\n3. Press Enter'
+                },
+                'safari': {
+                    url: 'https://support.apple.com/en-ca/guide/safari/sfri32508/18.0/mac/15.0',
+                    instructions: 'For Safari:\n1. Click "Safari" in the menu bar\n2. Select "Settings"\n3. Click the "Extensions" tab'
+                }
+            };
+        
+            const browserInfo = browserInstructions[browser];
+            
+            if (browserInfo) {
+                // Create a modal or alert with detailed instructions
+                const modal = document.createElement('div');
+                modal.innerHTML = `
+                    <div class="modal fade show" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1050;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Extension Page Instructions</h5>
+                                    <button type="button" class="btn-close" onclick="this.closest('.modal').remove()"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>${browserInfo.instructions}</p>
+                                    <input type="text" class="form-control mt-3" value="${browserInfo.url}" readonly>
+                                    <button class="btn btn-primary mt-2" onclick="copyToClipboard(this)">Copy URL</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            } else {
+                alert('Unsupported browser');
+            }
+        }
+        
+        // Helper function to copy URL to clipboard
+        function copyToClipboard(btn) {
+            const input = btn.previousElementSibling;
+            input.select();
+            navigator.clipboard.writeText(input.value).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-success');
+                setTimeout(() => {
+                    btn.textContent = 'Copy URL';
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-primary');
+                }, 2000);
+            });
+        }
+        
+        
+        const VERSIONS = {
+            latest: {
+                name: 'v14',
+                description: 'Latest Stable Version',
+                files: [
+                    { path: 'v14/manifest.json' },
+                    { path: 'v14/popup.html' },
+                    { path: 'v14/popup.js' }
+                ]
+            },
+            old: [
+                {
+                    name: 'v13.5',
+                    description: 'Cleaned Code Version',
+                    warnings: [
+                        'Minor improvements',
+                        'Code cleanup'
+                    ],
+                    files: [
+                        { path: 'old versions/v13.5 (cleaned code)/manifest.json' },
+                        { path: 'old versions/v13.5 (cleaned code)/popup.html' },
+                        { path: 'old versions/v13.5 (cleaned code)/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v13',
+                    description: 'Optimized with Smaller Increments',
+                    warnings: [
+                        '"Best EPS" does not update fast enough'
+                    ],
+                    files: [
+                        { path: 'old versions/v13/manifest.json' },
+                        { path: 'old versions/v13/popup.html' },
+                        { path: 'old versions/v13/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v12',
+                    description: 'Improved UAV Page Functionality',
+                    warnings: [
+                        'Sometimes EPS not set to Best EPS when stopping',
+                        '"Best EPS" does not update fast enough',
+                        'Does not properly find optimal weeks n % for sales promotion'
+                    ],
+                    files: [
+                        { path: 'old versions/v12/manifest.json' },
+                        { path: 'old versions/v12/popup.html' },
+                        { path: 'old versions/v12/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v11',
+                    description: 'Fixed AC Camera Price Range',
+                    warnings: [
+                        '"Best EPS" does not update fast enough',
+                        'Removed "Apply Best Values"',
+                        'UAV page only changes Search Engine Advertising'
+                    ],
+                    files: [
+                        { path: 'old versions/v11/manifest.json' },
+                        { path: 'old versions/v11/popup.html' },
+                        { path: 'old versions/v11/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v10',
+                    description: 'Reverted from V9.5',
+                    warnings: [
+                        'Unable to change AC Camera Wholesale Price',
+                        '"Best EPS" updates slowly',
+                        '"Apply Best Values" inconsistent'
+                    ],
+                    files: [
+                        { path: 'old versions/v10/manifest.json' },
+                        { path: 'old versions/v10/popup.html' },
+                        { path: 'old versions/v10/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v9.5',
+                    description: 'Attempted Fix for Input Ranges',
+                    warnings: [
+                        '"Apply Best Values" broken',
+                        'EPS dropping due to recording issues',
+                        'Input ranges broken'
+                    ],
+                    files: [
+                        { path: 'old versions/v9.5/manifest.json' },
+                        { path: 'old versions/v9.5/popup.html' },
+                        { path: 'old versions/v9.5/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v9',
+                    description: 'Added Reset Button',
+                    warnings: [
+                        '"Apply Best Values" broken',
+                        'Unable to change AC Camera Wholesale Price'
+                    ],
+                    files: [
+                        { path: 'old versions/v9/manifest.json' },
+                        { path: 'old versions/v9/popup.html' },
+                        { path: 'old versions/v9/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v8',
+                    description: 'History Removal for Storage',
+                    warnings: [
+                        '"Apply Best Values" broken',
+                        'Only best EPS info recorded',
+                        'Unable to change AC Camera Wholesale Price'
+                    ],
+                    files: [
+                        { path: 'old versions/v8/manifest.json' },
+                        { path: 'old versions/v8/popup.html' },
+                        { path: 'old versions/v8/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v7',
+                    description: 'Problematic EPS Calculation',
+                    warnings: [
+                        '"Apply Values" results in lower EPS',
+                        'Unable to change AC Camera Wholesale Price'
+                    ],
+                    files: [
+                        { path: 'old versions/v7/manifest.json' },
+                        { path: 'old versions/v7/popup.html' },
+                        { path: 'old versions/v7/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v6',
+                    description: 'Continued Input Issues',
+                    warnings: [
+                        '"Apply Values" button broken',
+                        'EPS logs may cause freezing',
+                        'Unable to change AC Camera Wholesale Price'
+                    ],
+                    files: [
+                        { path: 'old versions/v6/manifest.json' },
+                        { path: 'old versions/v6/popup.html' },
+                        { path: 'old versions/v6/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v5',
+                    description: 'Partial EPS Fix',
+                    warnings: [
+                        '"Best EPS" issue partially fixed',
+                        '"Apply Values" button broken',
+                        'EPS logs may cause freezing',
+                        'Unable to change AC Camera Wholesale Price'
+                    ],
+                    files: [
+                        { path: 'old versions/v5/manifest.json' },
+                        { path: 'old versions/v5/popup.html' },
+                        { path: 'old versions/v5/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v4',
+                    description: 'Broken EPS Calculation',
+                    warnings: [
+                        '"Best EPS" broken',
+                        'Excessive logging causes freezing',
+                        'Changes competitive assumptions'
+                    ],
+                    files: [
+                        { path: 'old versions/v4/manifest.json' },
+                        { path: 'old versions/v4/popup.html' },
+                        { path: 'old versions/v4/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v3',
+                    description: 'Continued Assumption Issues',
+                    warnings: [
+                        'Program changes competitive assumptions'
+                    ],
+                    files: [
+                        { path: 'old versions/v3/manifest.json' },
+                        { path: 'old versions/v3/popup.html' },
+                        { path: 'old versions/v3/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v2',
+                    description: 'New UI with Persistent Issues',
+                    warnings: [
+                        'Program changes competitive assumptions'
+                    ],
+                    files: [
+                        { path: 'old versions/v2/manifest.json' },
+                        { path: 'old versions/v2/popup.html' },
+                        { path: 'old versions/v2/popup.js' }
+                    ]
+                },
+                {
+                    name: 'v1',
+                    description: 'Initial Version',
+                    warnings: [
+                        'Bad UI',
+                        'Only changes dropdown-style inputs',
+                        'Changes competitive assumptions to best-case scenario'
+                    ],
+                    files: [
+                        { path: 'old versions/v1/manifest.json' },
+                        { path: 'old versions/v1/popup.html' },
+                        { path: 'old versions/v1/popup.js' }
+                    ]
+                }
+            ]
+        };
+        
+        const oldVersionSelect = document.getElementById('oldVersionSelect');
+        const downloadLatestBtn = document.getElementById('downloadLatestBtn');
+        const downloadOldVersionBtn = document.getElementById('downloadOldVersionBtn');
+
+        VERSIONS.old.forEach(version => {
+            const option = document.createElement('option');
+            option.value = version.name;
+            option.textContent = version.name;
+            oldVersionSelect.appendChild(option);
+        });
+
+    async function createAndDownloadZip(version) {
+        try {
+
+            const zip = new JSZip();
+
+            for (const file of version.files) {
+                try {
+                    const response = await fetch(file.path);
+                    const content = await response.text();
+                    zip.file(file.path.split('/').pop(), content);
+                } catch (error) {
+                    console.error(`Failed to fetch ${file.path}:`, error);
+                    zip.file(file.path.split('/').pop(), 'File not found');
+                }
+            }
+
+            if (version.warnings && version.warnings.length > 0) {
+                const warningMessage = version.warnings.map(w => `- ${w}`).join('\n');
+                const confirmDownload = confirm(`WARNING for ${version.name}:\n\n${warningMessage}\n\nDo you still want to download?`);
+                
+                if (!confirmDownload) {
+                    return;
+                }
+            }
+            const content = await zip.generateAsync({ 
+                type: 'blob',
+                compression: "DEFLATE",
+                compressionOptions: {
+                    level: 9
+                }
+            }, (metadata) => {
+                const progressPercentage = metadata.percent.toFixed(2);
+                console.log(`Compression progress: ${progressPercentage}%`);
+            });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(content);
+            link.download = `${version.name}.zip`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert(`Successfully downloaded ${version.name}`);
+
+        } catch (error) {
+            console.error('Zip creation failed:', error);
+            alert(`Download failed: ${error.message}`);
+        }
+    }
+
+        downloadLatestBtn.addEventListener('click', () => {
+            createAndDownloadZip(VERSIONS.latest);
+        });
+
+        downloadOldVersionBtn.addEventListener('click', () => {
+            const selectedVersion = oldVersionSelect.value;
+            const versionToDownload = VERSIONS.old.find(v => v.name === selectedVersion);
+            
+            if (versionToDownload) {
+                createAndDownloadZip(versionToDownload);
+            } else {
+                alert('Please select a valid version');
+            }
+        });
+    </script>
+    <footer class="container-fluid bg-dark text-center py-4 mt-5" style="
+    background-color: var(--dark-surface) !important;
+    color: var(--dark-text-secondary);
+    border-top: 1px solid var(--dark-accent-primary);
+">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="mb-3">
+                    <span class="me-2">⚠️</span>Disclaimer
+                </h5>
+                <p class="lead fs-6">
+                    The creator of this tool assumes no responsibility for your simulation performance, competitive rankings, or academic outcomes. Use of this tool is entirely at your own risk, and it should not be relied upon for achieving specific scores or leaderboard positions in the official Glo-Bus simulation.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+</body>
+</html>
