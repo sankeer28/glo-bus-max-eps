@@ -1,9 +1,8 @@
 
 # Glo-Bus Max EPS 💹
 
-Glo-Bus Max EPS is a Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the best financial parameter configurations. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
+Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the most optimal parameters. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
 
-## This program and below strategy will **NOT** guarantee first place for this simulation
 ## High EPS Strategy Guide
 
 <details>
@@ -35,21 +34,53 @@ Glo-Bus Max EPS is a Chrome extension developed to help save time when finding t
   
 </details>
 
-## Features 🚀
-⚠️ = May or may not work. 
-- **Automated EPS Optimization**: Tests various input values to find configurations that yield the highest EPS. ⚠️
-- **Financial Metrics Tracking**: Monitors EPS, net revenue, profit, cash, image rating, market share, stock price, and return on assets (ROA). ⚠️
-- **Persistent Best Score**: Saves the best EPS score and input configuration, allowing users to reapply or reset values. ⚠️
-- **Interactive UI**: Simple start/stop controls with delay customization. ✅
+## 🚀 Features
+- **Automatic Optimization**: Intelligently explores different input combinations
+- **Real-time Score Tracking**: Monitors and updates best performance metrics
+- **Flexible Strategy**: Adapts to different input types (prices, budgets, marketing)
+- **History Tracking**: Maintains a log of best-performing strategies, accessible thorugh inspect element console
+- **Easy-to-Use Interface**: Simple start/stop controls with detailed insights
+  
+## 🛠 Technical Highlights
 
-## Technical Overview
+- Chrome Extension architecture
+- Advanced search and optimization algorithms
+- Dynamic input value exploration
+- Persistent state management
+- Comprehensive metrics tracking
+<details>
+  <summary>Intelligent Multi-Dimensional Search</summary>
 
-The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScript functions working in concert:
 
-1. **EPS Optimization**: The extension tests various inputs and dropdown selections to find the optimal EPS score by iterating through all possible configurations and calculating the resulting EPS.
-2. **Metric Verification**: Each potential new EPS score is verified using `verifyComboScore` to ensure that scores are calculated accurately before updating the best score.
-3. **Composite Scoring**: To establish the “best” EPS configuration, the `calculateCompositeScore` function weighs EPS heavily but also considers other financial metrics (profit, cash, etc.) using a weighted system to calculate a composite score.
-4. **Chrome Storage**: The extension uses Chrome's `local storage` to save configurations, scores, and settings across browser sessions.
+#### 1. Composite Score Calculation
+- Calculates a comprehensive performance score beyond simple EPS
+- Weights multiple metrics including revenue, profit, market share
+- Provides a holistic view of strategy performance
+
+#### 2. Adaptive Search Strategies
+- **Incremental Search**: Methodically explores input values
+- **Bidirectional Optimization**: Searches both increase and decrease directions
+- **Randomized Global Search**: Prevents getting stuck in local optima
+
+#### 3. Constraint-Aware Optimization
+- Respects input value ranges and increments
+- Validates and clamps values to acceptable ranges
+- Ensures realistic and feasible strategy configurations
+
+### Key Algorithmic Techniques
+
+- **Dynamic Value Exploration**: Systematically tests input combinations
+- **Stagnation Detection**: Prevents endless unproductive searches
+- **Persistent State Tracking**: Remembers and builds upon best configurations
+
+### Optimization Workflow
+
+1. Initial Configuration Capture
+2. Incremental Value Modification
+3. Performance Metric Evaluation
+4. Best Configuration Storage
+5. Continuous Refinement
+</details>
 
 ## Getting Started
 
@@ -74,7 +105,7 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
    - Start the extension by clicking **Start**.
 
 ## Usage
-### Only use this extension on the "AC Camera Marketing" and "UAV Drone Marketing" pages. It will work on the "Product Design" page but will set R&D to 0, so chagne it back to the highest possible.
+### Only use this extension on the "AC Camera Marketing" and "UAV Drone Marketing" pages. It will work on the "Product Design" page but will set R&D to 0, so change it back to the highest possible.
 
 
 1. **Setting Delay**: Configure the delay in milliseconds to control the optimization loop's frequency.
@@ -157,12 +188,17 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
   14. **V13**
       - Optimized to use smaller increments to get potentially higher EPS compared to V12
       - "Best EPS" does not update fast enough
+        
+  15. **V14**
+      - More optimized, achieves higher EPS than V13
 
     
 
 </details>
 
+## ⚠️ Disclaimer
 
+This tool is for educational and simulation purposes. Always comply with the terms of service of the platform you're using.
 
 
 
