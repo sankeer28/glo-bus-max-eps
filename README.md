@@ -152,7 +152,7 @@ The core functionality of **Glo-Bus Max EPS** is driven by several key JavaScrip
       - Sometimes when clicking "Stop" the EPS is not set to the Best EPS found. (can be overcome by not letting program run for too long)
       - "Best EPS" does not update fast enough
       - Fixed issue with V11, UAV page works properly
-      - Does not properly find optimal weeks n % for sales promotion. (must fo manually)
+      - Does not properly find optimal weeks n % for sales promotion. (must do manually)
         
   14. **V13**
       - Optimized to use smaller increments to get potentially higher EPS compared to V12
