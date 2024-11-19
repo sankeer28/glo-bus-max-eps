@@ -198,7 +198,7 @@ Chrome extension developed to help save time when finding the highest Earnings P
 
 ## ⚠️ Disclaimer
 
-This tool is for educational and simulation purposes. Always comply with the terms of service of the platform you're using.
+This tool is for simulation purposes. 
 
 
 
