@@ -4,16 +4,13 @@
 Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the most optimal parameters. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
 
 ## Concepts used
-- Gradient Descent
+- [Gradient Descent](https://www.geeksforgeeks.org/how-to-implement-a-gradient-descent-in-python-to-find-a-local-minimum/)
   - Used for finding optimal values by taking steps in the direction of improvement
   - Core optimization method for adjusting prices and budgets
-- Monte Carlo Method
+- [Monte Carlo Method](https://pbpython.com/monte-carlo.html)
   - Random sampling technique used in the randomizedSearch function
   - Helps explore different value combinations
-- Dynamic Programming
-  - Stores and reuses best solutions found
-  - Implemented in the state management system
-- Weighted Scoring Algorithm
+- [Weighted Scoring Algorithm](https://machinelearningmastery.com/weighted-average-ensemble-with-python/)
   - Used in calculateCompositeScore to combine multiple metrics
   - Assigns different weights to different performance indicators
 - Greedy Algorithm
@@ -25,9 +22,7 @@ Chrome extension developed to help save time when finding the highest Earnings P
 - Linear Interpolation
   - Used for scaling values within constraints
   - Applied when adjusting input values
-- Pareto Efficiency
-  - Tracks solutions that are optimal across multiple objectives
-  - Used in comparing different combinations of values
+
 
 ## High EPS Strategy Guide
 
