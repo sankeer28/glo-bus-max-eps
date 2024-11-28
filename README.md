@@ -3,6 +3,32 @@
 
 Chrome extension developed to help save time when finding the highest Earnings Per Share (EPS) in the Glo-Bus simulation by automating and applying the most optimal parameters. This extension actively monitors and iterates through financial inputs, recording the highest EPS scores achieved.
 
+## Concepts used
+- Gradient Descent
+  - Used for finding optimal values by taking steps in the direction of improvement
+  - Core optimization method for adjusting prices and budgets
+- Monte Carlo Method
+  - Random sampling technique used in the randomizedSearch function
+  - Helps explore different value combinations
+- Dynamic Programming
+  - Stores and reuses best solutions found
+  - Implemented in the state management system
+- Weighted Scoring Algorithm
+  - Used in calculateCompositeScore to combine multiple metrics
+  - Assigns different weights to different performance indicators
+- Greedy Algorithm
+  - Takes locally optimal choices at each step
+  - Used in the optimization process for immediate improvements
+- Stochastic Search
+  - Random exploration of the solution space
+  - Helps avoid local maxima
+- Linear Interpolation
+  - Used for scaling values within constraints
+  - Applied when adjusting input values
+- Pareto Efficiency
+  - Tracks solutions that are optimal across multiple objectives
+  - Used in comparing different combinations of values
+
 ## High EPS Strategy Guide
 
 <details>
